@@ -1,6 +1,4 @@
-Certainly! Here’s a revised `README.md` that emphasizes building neural networks without Keras, using custom implementations instead:
 
-```markdown
 # Flask Image Classification and Drawing App
 
 ## Overview
@@ -28,7 +26,7 @@ This project is a Flask web application that enables users to upload images for 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/koushik2k3/Neural-Networks.git
    cd your-repo
    ```
 
@@ -104,15 +102,9 @@ This project demonstrates constructing neural networks from scratch, avoiding hi
 
 Contributions are welcome! Feel free to open issues or submit pull requests for improvements or bug fixes.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - This project utilizes custom implementations of neural network components.
 - Inspired by foundational concepts in neural networks and machine learning.
 
-```
 
-Be sure to replace `https://github.com/your-username/your-repo.git` with your actual GitHub repository URL, and adjust file paths or other specifics according to your project setup.
