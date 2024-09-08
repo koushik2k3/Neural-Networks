@@ -1,4 +1,3 @@
-
 # Flask Image Classification and Drawing App
 
 ## Overview
@@ -30,7 +29,7 @@ This project is a Flask web application that enables users to upload images for 
 
    ```bash
    git clone https://github.com/koushik2k3/Neural-Networks.git
-   cd your-repo
+   cd Neural-Networks
    ```
 
 2. **Install the required packages:**
@@ -72,6 +71,65 @@ This project is a Flask web application that enables users to upload images for 
    ```
 
    By default, the server will run on `http://127.0.0.1:4000/`.
+## Drawing Feature
+
+The drawing feature allows users to create images of numbers and view them. Here’s how it works:
+
+1. **Number Drawing:**
+
+   - When a number is entered on the `/draw` route, the application processes it to generate an image.
+   - The `draw` function uses a custom neural network to produce an image representing the given number. The network performs a forward pass with the number encoded as a one-hot vector.
+   - The resulting output is a 28x28 image, which is saved as a PNG file. This file is stored in the `static/drawings` directory.
+
+2. **Multiple Digits:**
+
+   - For numbers with multiple digits, the `drawmorethan1digit` function processes each digit separately and concatenates the images to form a composite image.
+   - Each digit is converted into a 28x28 image, which is then placed side by side to create a single image representing the entire number.
+
+3. **Displaying the Image:**
+
+   - The generated image is saved and can be accessed through the `/static/drawings/<filename>` route.
+   - The filename is generated dynamically based on the number drawn.
+
+## Custom Convolutional Neural Network (CNN)
+
+This project demonstrates how to build a Convolutional Neural Network (CNN) from scratch. Here's a breakdown of how the custom CNN works:
+
+1. **Network Architecture:**
+
+   The custom CNN is composed of the following layers:
+   - **Convolutional Layer:** Applies convolution operations to extract features from input images.
+   - **Activation Layer:** Applies activation functions (e.g., ReLU, sigmoid) to introduce non-linearity.
+   - **Reshape Layer:** Reshapes the output of the convolutional layer to fit the input requirements of fully connected layers.
+   - **Dense Layer:** Implements fully connected layers to process the features extracted by the convolutional layers.
+   - **Softmax Layer:** Provides a probability distribution over classes for classification tasks.
+
+2. **Layer Details:**
+
+   - **Convolutional Layer:** 
+     - Custom `Convolutional` class performs 2D convolution operations using kernels and biases.
+     - Implemented with methods for forward and backward propagation, weight updating, and saving/loading weights.
+
+   - **Dense Layer:**
+     - Custom `Dense` class implements fully connected layers with weight and bias parameters.
+     - Includes methods for forward and backward propagation and weight updates.
+
+   - **Activation Functions:**
+     - Implementations for various activation functions such as ReLU and sigmoid are included.
+     - Custom classes for activation functions handle both forward and backward propagation.
+
+   - **Softmax Layer:**
+     - Custom `Softmax` class applies the softmax function to produce class probabilities from the network output.
+
+3. **Training and Prediction:**
+
+   - **Training:**
+     - The `train` function performs training using backpropagation and gradient descent.
+     - Loss functions such as mean squared error and binary cross-entropy are used for calculating the error and gradients.
+
+   - **Prediction:**
+     - The `predict` function applies the trained network to input data and provides output predictions.
+
 
 ## Usage
 
@@ -92,15 +150,6 @@ This project is a Flask web application that enables users to upload images for 
 - `templates/` - Directory for HTML templates.
 - `weights1.xlsx`, `weights2.xlsx`, `bias1.xlsx`, `bias2.xlsx`, `weights.xlsx` - Files with pre-trained model weights and biases.
 
-## Building the Neural Network
-
-This project demonstrates constructing neural networks from scratch, avoiding high-level libraries such as Keras. The implementation includes:
-
-- **Convolutional Layers:** Custom `Convolutional` class for applying convolution operations.
-- **Dense Layers:** Custom `Dense` class for fully connected layers.
-- **Activation Functions:** Custom activation functions such as ReLU and sigmoid.
-- **Training and Prediction:** Functions for training the network and making predictions.
-
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests for improvements or bug fixes.
@@ -109,5 +158,3 @@ Contributions are welcome! Feel free to open issues or submit pull requests for 
 
 - This project utilizes custom implementations of neural network components.
 - Inspired by foundational concepts in neural networks and machine learning.
-
-
