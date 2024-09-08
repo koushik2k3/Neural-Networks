@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fashion Items Recognition</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        hr {
+            margin: 20px 0;
+            border: none;
+            border-top: 2px dashed #ffa500;
+        }
+
+        a {
+            display: block;
+            font-size: 20px;
+            color: #ff6b6b;
+            margin: 20px 0;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #ff6b6b;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ff6b6b;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        input[type="submit"] {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff6347;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 5px solid #ff6b6b;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <hr>
+    <h1>Fashion Items</h1>
+    <form method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        {{ form.image.label }} {{ form.image }}
+        {{ form.submit }}
+    </form>
+
+    {% if image %}
+    <h2>Uploaded Image:</h2>
+    {{ image }}
+    <img src="{{ url_for('static', filename='images/' + image) }}" alt="Uploaded Image">
+    {% endif %}
+    
+    {% if output %}
+    <div class="output">
+        <b>{{ output }}</b>
+    </div>
+    {% endif %}
+    
+    <a href="{{ url_for('draw_number') }}" class="nav-button">Draw a Number</a> <!-- Add navigation button -->
+</body>
+</html>
