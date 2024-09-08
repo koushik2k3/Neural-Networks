@@ -2,8 +2,11 @@
 # Flask Image Classification and Drawing App
 
 ## Overview
+![Output](https://github.com/user-attachments/assets/6f9363ec-c44c-440b-840c-0b2c2f95d72b)
 
-This project is a Flask web application that enables users to upload images for classification using a custom neural network. Additionally, users can draw numbers which are processed and displayed. The neural network is built from scratch without using high-level libraries like Keras, relying instead on custom implementations of neural network layers.
+![Output2 ](https://github.com/user-attachments/assets/858e6d14-02db-450e-b4b8-ee44cf02f658)
+
+This project is a Flask web application that enables users to upload images for classification of the MNIST Fashion dataset using a custom neural network. Additionally, users can draw numbers which are processed and displayed. The neural network is built from scratch without using high-level libraries like Keras, relying instead on custom implementations of neural network layers.
 
 ## Features
 
@@ -74,7 +77,7 @@ This project is a Flask web application that enables users to upload images for 
 
 1. **Upload Image for Classification:**
 
-   Visit the root URL to access the image upload form. Upload an image, and it will be classified using the custom neural network. The classification result will be displayed.
+   Visit the root URL to access the image upload form. Upload an image from the fashion_mnist folder, and it will be classified using the custom neural network. The classification result will be displayed.
 
 2. **Draw a Number:**
 
